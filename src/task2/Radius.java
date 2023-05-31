@@ -14,4 +14,11 @@ public class Radius {
     public void setRadius(int radius) {
         this.radius = radius;
     }
+
+    @Override
+    public String toString() {
+        return "Radius{" +
+                "radius=" + radius +
+                '}';
+    }
 }

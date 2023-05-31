@@ -5,7 +5,6 @@ import java.util.List;
 public class Dot {
     private float x;
     private float y;
-    private List<List<Float>> points;
 
     public Dot(float x, float y) {
         this.x = x;
@@ -28,4 +27,11 @@ public class Dot {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return "Dot{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
