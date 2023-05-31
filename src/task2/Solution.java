@@ -2,16 +2,12 @@ package task2;
 
 public class Solution {
     public static void main(String[] args) {
-        String[] files = {"text1.txt", "text2.txt"};
-
-        Read read = new Read(files);
-        read.readFile();
-        Fill fill = new Fill();
-        fill.fillDots(read.getPoints());
-//        List<Dot> dots = fill.getDots();
-//        for (Dot dot : dots) {
-//            System.out.println(dot.toString());
-//        }
-        Calculate calculate = new Calculate(fill.getDots(), );
+        Read read = new Read(args); // Создаем экземпляр класса Read и передаем массив файлов
+        read.readFile(); // Метод чтения файла
+        Fill fill = new Fill(); // Создаем экземпляр класса Fill
+        fill.fillDots(read.getPoints()); // Метод для присваивания координат точкам
+        fill.fillCircle(read.getCircle()); // Метод для присваивания центра и радиуса окружности
+        Calculate calculate = new Calculate(fill.getDots(), fill.getCircle()); // Создаем экземпляр класса Calculate и передаем список точек и окружность
+        calculate.calcResult(); // Считаем результат
     }
 }

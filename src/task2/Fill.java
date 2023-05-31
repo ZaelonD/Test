@@ -1,23 +1,25 @@
 package task2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Fill {
-    private List<Dot> dots;
-    private Circle circle;
-    float[] floats = new float[2];
+    private List<Dot> dots; // Список точек
+    private Circle circle; // Объект окружность
+    float[] floats = new float[2]; // временный массив для координат
 
+    // Метод для присваивания координат точкам
     public void fillDots(List<String[]> data) {
-        dots = new ArrayList<>();
+        dots = new ArrayList<>(); // Инициализация списка
+        // Проходимся по списку
         for (String[] points : data) {
             for (int i = 0; i < points.length; i++) {
-                floats[i] = Float.parseFloat(points[i]);
+                floats[i] = Float.parseFloat(points[i]); // Записываем точку в массив
             }
-            dots.add(new Dot(floats[0], floats[1]));
+            dots.add(new Dot(floats[0], floats[1])); // Добавляем созданный экземпляр точки
         }
     }
 
+    // Метод присвоения координат центру и радиус
     public void fillCircle(List<String[]> data) {
         int radius = 0;
         for (String[] nums : data) {
