@@ -1,25 +1,66 @@
 package task1;
 
-public class CircularArray {
-    public static int[] CalculatePath(String[] args) {
-        int[] result = new int[4];
-//        int n = Integer.parseInt(args[0]); // Длина исходного массива
-//        int m = Integer.parseInt(args[1]); // Длина обхода
-//
-        int n = 3; // Длина исходного массива
-        int m = 3; // Длина обхода
+import java.util.*;
 
-        int[] circArray = new int[n];
-        fill(circArray);
-        for (int i = 0; i < n; i++) {
-            result[i] = circArray[(i + m) % n];
-        }
-        return result;
+public class CircularArray {
+
+    private final int N;
+    private final int M;
+    private final List<int[]> intervals;
+    private int[] path;
+
+    public CircularArray(String n, String m) {
+        this.N = Integer.parseInt(n);
+        this.M = Integer.parseInt(m);
+        intervals = new ArrayList<>();
     }
 
-    private static void fill(int[] circArray) {
-        for (int i = 0; i < circArray.length; ) {
-            circArray[i] = ++i;
+    public int[] CalculatePath() {
+        int[] arr = fill();
+        int[] arr1 = new int[M];
+        System.arraycopy(arr, 0, arr1, 0, M);
+        intervals.add(arr1);
+        int cnt = -1;
+        while (true) {
+            int[] arr2 = new int[M];
+            for (int i = 0; i < M; i++) {
+                arr2[i] = arr[M + cnt];
+                cnt++;
+            }
+            if (arr2[M - 1] == 1) {
+                intervals.add(arr2);
+                break;
+            } else {
+                intervals.add(arr2);
+                cnt--;
+            }
+        }
+        pathCount(intervals);
+        return path;
+    }
+
+    private void pathCount(List<int[]> intervals) {
+        path = new int[intervals.size()];
+        for (int i = 0; i < intervals.size(); i++) {
+            path[i] = intervals.get(i)[0];
+        }
+    }
+
+    private int[] fill() {
+        int[] arr = new int[N * M];
+        int k = 0;
+        for (int i = 0; i < M; i++) {
+            for (int j = 1; j <= N; j++) {
+                arr[k] = j;
+                k++;
+            }
+        }
+        return arr;
+    }
+
+    public void print(int[] path) {
+        for (int num : path) {
+            System.out.print(num);
         }
     }
 }
