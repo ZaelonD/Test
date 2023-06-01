@@ -32,13 +32,12 @@ public class Read {
                         continue;
                     }
                     points.add(row.split(" "));
-                    if (k == 102){
+                    if (k == 102) {
                         System.out.println("Ограничение! Более 100 точек запрещено!");
                         break;
                     }
                     k++;
                 }
-
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -1,12 +1,10 @@
-package task3;
+package task3.values;
 
-import java.util.List;
-
-public class Values {
+public class Value {
     private final int id;
     private final String value;
 
-    public Values(int id, String value) {
+    public Value(int id, String value) {
         this.id = id;
         this.value = value;
     }

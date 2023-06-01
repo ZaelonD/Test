@@ -1,4 +1,6 @@
-package task3;
+package task3.tests;
+
+import task3.values.Value;
 
 import java.util.List;
 
@@ -6,20 +8,20 @@ public class Test {
     private int id;
     private String title;
     private String value;
-    private List<Test> values;
+    private List<TestValue> values;
 
-    public Test(int id, String title, String value, List<Test> values) {
+    public Test(int id, String title, String value, List<TestValue> values) {
         this.id = id;
         this.title = title;
         this.value = value;
         this.values = values;
     }
 
-    public List<Test> getValues() {
+    public List<TestValue> getValues() {
         return values;
     }
 
-    public void setValues(List<Test> values) {
+    public void setValues(List<TestValue> values) {
         this.values = values;
     }
 
