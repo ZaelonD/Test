@@ -19,11 +19,11 @@ public class Calculate {
         // Проходимся по списку точек
         for (Dot dot : dots) {
             if (calcDistance(dot.getX(), dot.getY()) > circle.getRadius()) {
-                System.out.print(2 + " "); // Точка снаружи
+                System.out.println(2); // Точка снаружи
             } else if (calcDistance(dot.getX(), dot.getY()) < circle.getRadius()) {
-                System.out.print(1 + " "); // Точка внутри
+                System.out.println(1); // Точка внутри
             } else {
-                System.out.print(0 + " "); // Точка лежит на окружности
+                System.out.println(0); // Точка лежит на окружности
             }
         }
     }
